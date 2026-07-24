@@ -6,9 +6,9 @@ from app.models.user import User
 from app.repositories.student_repository import StudentRepository
 from app.schemas.student import (
     StudentCreate,
+    StudentStatsUpdate,
     StudentUpdate,
 )
-
 
 def create_student(
     db: Session,
@@ -104,3 +104,25 @@ def delete_student(
     )
 
     repository.delete(student)
+
+def update_student_stats(
+    db: Session,
+    user: User,
+    student_id: int,
+    data: StudentStatsUpdate,
+) -> Student:
+
+    repository = StudentRepository(db)
+
+    student = get_student_or_404(
+        db,
+        user,
+        student_id,
+    )
+
+    return repository.update_stats(
+        student=student,
+        xp=data.xp,
+        coins=data.coins,
+        learning_level=data.learning_level,
+    )

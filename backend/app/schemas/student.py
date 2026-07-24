@@ -78,3 +78,8 @@ class StudentResponse(BaseModel):
     model_config = ConfigDict(
         from_attributes=True,
     )
+
+class StudentStatsUpdate(BaseModel):
+    xp: int
+    coins: int
+    learning_level: int

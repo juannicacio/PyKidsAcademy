@@ -10,6 +10,7 @@ from app.routers import student_progress
 from app.routers import achievement_router
 from app.routers.student_achievement_router import router as student_achievement_router
 from app.routers.game_session_router import router as game_session_router
+from app.routers.leaderboard_router import router as leaderboard_router
 
 app = FastAPI(
     title="PyKids Academy API",
@@ -26,6 +27,7 @@ app.include_router(student_progress.router)
 app.include_router(achievement_router.router)
 app.include_router(student_achievement_router)
 app.include_router(game_session_router)
+app.include_router(leaderboard_router)
 
 @app.get("/")
 def root():

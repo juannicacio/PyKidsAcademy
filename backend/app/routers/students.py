@@ -7,14 +7,16 @@ from app.models.user import User
 from app.schemas.student import (
     StudentCreate,
     StudentResponse,
+    StudentStatsUpdate,
     StudentUpdate,
 )
 from app.services.student_service import (
     create_student,
     delete_student,
+    get_student_or_404,
     list_students,
     update_student,
-    get_student_or_404,
+    update_student_stats,
 )
 
 router = APIRouter(
@@ -80,6 +82,22 @@ def update(
         student,
     )
 
+@router.put(
+    "/{student_id}/stats",
+    response_model=StudentResponse,
+)
+def update_stats(
+    student_id: int,
+    stats: StudentStatsUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    return update_student_stats(
+        db,
+        current_user,
+        student_id,
+        stats,
+    )
 
 @router.delete(
     "/{student_id}",

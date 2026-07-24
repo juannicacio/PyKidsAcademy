@@ -61,3 +61,19 @@ class StudentRepository:
     ) -> None:
         self.db.delete(student)
         self.db.commit()
+
+    def update_stats(
+        self,
+        student,
+        xp: int,
+        coins: int,
+        learning_level: int,
+    ):
+        student.xp = xp
+        student.coins = coins
+        student.learning_level = learning_level
+
+        self.db.commit()
+        self.db.refresh(student)
+
+        return student
