@@ -1,0 +1,94 @@
+.
+├── alembic
+│   ├── env.py
+│   ├── README
+│   ├── script.py.mako
+│   └── versions
+│       └── 4a541bc1ee8a_initial_schema.py
+├── alembic.ini
+├── app
+│   ├── auth
+│   │   ├── dependencies.py
+│   │   ├── hashing.py
+│   │   ├── __init__.py
+│   │   └── jwt.py
+│   ├── core
+│   │   ├── config.py
+│   │   ├── database.py
+│   │   ├── __init__.py
+│   │   └── security.py
+│   ├── dependencies.py
+│   ├── exceptions
+│   │   ├── auth_exceptions.py
+│   │   ├── __init__.py
+│   │   └── student_exceptions.py
+│   ├── __init__.py
+│   ├── main.py
+│   ├── models
+│   │   ├── base.py
+│   │   ├── challenge.py
+│   │   ├── game.py
+│   │   ├── __init__.py
+│   │   ├── level.py
+│   │   ├── question.py
+│   │   ├── student.py
+│   │   └── user.py
+│   ├── repositories
+│   │   ├── challenge_repository.py
+│   │   ├── game_repository.py
+│   │   ├── __init__.py
+│   │   ├── level_repository.py
+│   │   ├── question_repository.py
+│   │   ├── student_repository.py
+│   │   └── user_repository.py
+│   ├── routers
+│   │   ├── auth.py
+│   │   ├── challenges.py
+│   │   ├── games.py
+│   │   ├── __init__.py
+│   │   ├── levels.py
+│   │   ├── questions.py
+│   │   └── students.py
+│   ├── schemas
+│   │   ├── auth.py
+│   │   ├── challenge.py
+│   │   ├── game.py
+│   │   ├── __init__.py
+│   │   ├── level.py
+│   │   ├── question.py
+│   │   ├── student.py
+│   │   └── user.py
+│   └── services
+│       ├── auth_service.py
+│       ├── challenge_service.py
+│       ├── game_service.py
+│       ├── __init__.py
+│       ├── level_service.py
+│       ├── question_service.py
+│       ├── student_service.py
+│       └── user_service.py
+├── create_tables.py
+├── database.py
+├── .env
+├── .env.test
+├── estructura.txt
+├── main.py
+├── pytest.ini
+├── requirements.txt
+├── run.py
+├── test_config.py
+├── test_db.py
+├── test_jwt.py
+└── tests
+    ├── conftest.py
+    ├── __init__.py
+    ├── test_auth_fixture.py
+    ├── test_auth.py
+    ├── test_challenges.py
+    ├── test_games.py
+    ├── test_levels.py
+    ├── test_list_students
+    ├── test_questions.py
+    └── test_students.py
+
+13 directories, 79 files

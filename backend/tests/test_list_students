@@ -1,0 +1,39 @@
+def test_list_students(client, auth_headers):
+    headers = auth_headers()
+
+    create = client.post(
+        "/students",
+        headers=headers,
+        json={
+            "first_name": "Alice",
+            "birth_month": 5,
+            "birth_year": 2018,
+            "avatar": None,
+        },
+    )
+
+    assert create.status_code == 201
+
+    response = client.get(
+        "/students",
+        headers=headers,
+    )
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert isinstance(data, list)
+    assert len(data) == 1
+
+    student = data[0]
+
+    assert student["id"] > 0
+    assert student["user_id"] > 0
+    assert student["first_name"] == "Alice"
+    assert student["birth_month"] == 5
+    assert student["birth_year"] == 2018
+    assert student["avatar"] is None
+    assert student["learning_level"] == 1
+    assert student["xp"] == 0
+    assert student["coins"] == 0
