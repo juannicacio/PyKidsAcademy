@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import UTC, datetime
 
 from sqlalchemy.orm import Session
 
@@ -55,7 +55,7 @@ class GameSessionRepository:
         session.xp_earned = values["xp_earned"]
         session.coins_earned = values["coins_earned"]
         session.completed = values["completed"]
-        session.finished_at = datetime.utcnow()
+        session.finished_at = datetime.now(UTC)
 
         self.db.commit()
         self.db.refresh(session)
